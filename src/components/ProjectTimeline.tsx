@@ -48,7 +48,7 @@ export default function ProjectTimeline() {
             Timeline
           </h2>
           <p className="mt-3 text-base text-zinc-400 sm:text-lg">
-            How my engineering evolved from systems foundations to AI-driven product thinking
+            How my engineering evolved from systems to AI systems
           </p>
         </motion.div>
 

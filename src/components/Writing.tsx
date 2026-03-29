@@ -4,7 +4,7 @@ export default function Writing() {
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <h2 className="mb-6 text-3xl font-semibold text-zinc-100 sm:mb-8">
-            System Builder / Tinkerer / AI Explorer
+            System Builder / Tinkerer / Explorer
           </h2>
 
           <div className="space-y-5 text-base leading-relaxed text-zinc-300 sm:space-y-6 sm:text-lg">

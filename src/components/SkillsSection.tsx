@@ -1,56 +1,45 @@
-"use client";
-
-import { useState } from "react";
-import { skills } from "@/data/skills";
-import { Button } from "@/components/ui/button";
-
-const tabs = ["all", "frontend", "backend", "database", "ai"];
-
 export default function SkillsSection() {
-  const [active, setActive] = useState("all");
-
-  const filtered =
-    active === "all"
-      ? skills
-      : skills.filter((s) => s.category.includes(active));
+  const skillGroups = [
+    {
+      title: "Backend Systems",
+      description: "API design, data modeling, multi-tenant flows, reliability engineering",
+      usedIn: ["TicketHub", "SaaS Billing"],
+    },
+    {
+      title: "AI / ML",
+      description: "Applied ML pipelines, clustering models, retrieval-driven AI workflows",
+      usedIn: ["Fraud Detection", "Smart Wardrobe"],
+    },
+    {
+      title: "Systems / Low-Level",
+      description: "Concurrency, sockets, request handling, runtime behavior understanding",
+      usedIn: ["Multi-Threaded HTTP Server"],
+    },
+    {
+      title: "Architecture",
+      description: "RBAC, multi-tenant architecture, layered APIs, long-term system evolution",
+      usedIn: ["TicketHub", "SaaS Billing", "Fraud Detection"],
+    },
+  ];
 
   return (
     <section className="mx-auto w-full px-5 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-8 flex flex-wrap gap-2 border-b border-white/10 pb-4 sm:gap-3 sm:pb-5">
-          {tabs.map((tab) => (
-            <Button
-              key={tab}
-              type="button"
-              variant={active === tab ? "secondary" : "outline"}
-              size="sm"
-              onClick={() => setActive(tab)}
-              className={`capitalize text-xs sm:text-sm ${
-                active === tab
-                  ? "bg-zinc-100 text-zinc-950 hover:bg-zinc-200"
-                  : "border-white/15 bg-white/2 text-zinc-300 hover:bg-white/10"
-              }`}
-            >
-              {tab}
-            </Button>
-          ))}
-        </div>
-
         <div className="grid gap-4 sm:gap-5 md:gap-6 md:grid-cols-2">
-          {filtered.map((skill) => (
-            <div key={skill.name} className="rounded-lg border border-white/10 bg-white/3 p-4 sm:p-5">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <div className="flex-1">
-                  <h3 className="text-sm font-medium text-zinc-100 sm:text-base">{skill.name}</h3>
-                  <p className="mt-1 text-xs text-zinc-400">{skill.description}</p>
-                </div>
-              </div>
+          {skillGroups.map((group) => (
+            <div key={group.title} className="rounded-lg border border-white/10 bg-white/3 p-4 sm:p-5">
+              <h3 className="text-lg font-semibold text-zinc-100">{group.title}</h3>
+              <p className="mt-2 text-sm text-zinc-400">{group.description}</p>
 
-              <div className="mt-3 sm:mt-4 h-1 w-full rounded-full bg-white/10">
-                <div
-                  className="h-1 rounded-full bg-zinc-100"
-                  style={{ width: `${skill.level}%` }}
-                />
+              <div className="mt-4 rounded-md border border-white/10 bg-black/20 p-3">
+                <p className="mb-2 text-xs uppercase tracking-[0.12em] text-zinc-500">Used In</p>
+                <div className="flex flex-wrap gap-2">
+                  {group.usedIn.map((project) => (
+                    <span key={project} className="rounded-full border border-white/10 bg-white/8 px-2.5 py-1 text-xs text-zinc-200">
+                      {project}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

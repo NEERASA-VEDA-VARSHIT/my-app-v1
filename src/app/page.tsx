@@ -1,13 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedProjects from "@/components/FeaturedProjects";
-import TimelineBridge from "@/components/TimelineBridge";
 import ProjectTimeline from "@/components/ProjectTimeline";
 import Footer from "@/components/Footer";
 import Writing from "@/components/Writing";
 import Highlights from "@/components/Highlights";
-import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
+import IdentityStatement from "@/components/IdentityStatement";
+import About from "@/components/about";
 
 export default function Home() {
   return (
@@ -18,8 +17,10 @@ export default function Home() {
           <Navbar />
           <Hero />
           <Writing />
-          <Highlights />
           <FeaturedProjects />
+          <ProjectTimeline />
+          <Highlights />
+          <About />
           <Footer />
         </div>
       </div>

@@ -11,14 +11,14 @@ export default function FeaturedProjects() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 sm:mb-10 md:mb-12">
           <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl md:text-5xl">
-            Featured Projects
+            Featured Systems
           </h2>
           <p className="mt-3 text-base text-zinc-400 sm:text-lg">
-            System layers that showcase architecture depth, AI integration, and real-world execution
+            Selected systems that reflect my approach to backend architecture, AI integration, and scalable design.
           </p>
         </div>
 
-        <div className="-mx-5 overflow-x-auto px-5 pb-2 snap-x snap-mandatory scroll-px-5 sm:-mx-6 sm:px-6 sm:scroll-px-6 md:-mx-8 md:px-8 md:scroll-px-8">
+        <div className="projects-scrollbar -mx-5 overflow-x-auto px-5 pb-2 snap-x snap-mandatory scroll-px-5 sm:-mx-6 sm:px-6 sm:scroll-px-6 md:-mx-8 md:px-8 md:scroll-px-8">
           <div className="grid auto-cols-[85%] grid-flow-col gap-4 sm:auto-cols-[65%] md:auto-cols-[52%] lg:auto-cols-[40%]">
             {projects.map((project) => (
               <div key={project.title} className="snap-start">
@@ -30,8 +30,6 @@ export default function FeaturedProjects() {
             ))}
           </div>
         </div>
-
-        <p className="mt-4 text-xs text-zinc-500">Scroll horizontally to view all projects.</p>
       </div>
     </section>
   );

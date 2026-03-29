@@ -35,7 +35,10 @@ export default function ProjectsPage() {
             </Button>
           </nav>
 
-          <h1 className="mb-6 text-5xl font-semibold tracking-tight text-zinc-100">Projects</h1>
+          <h1 className="mb-2 text-5xl font-semibold tracking-tight text-zinc-100">Projects</h1>
+          <p className="mb-6 max-w-3xl text-sm text-zinc-400 sm:text-base">
+            Evaluation layer: systems, scale, architecture decisions, and production behavior.
+          </p>
           <ProjectsSection />
         </div>
       </div>

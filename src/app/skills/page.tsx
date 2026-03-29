@@ -35,7 +35,10 @@ export default function SkillsPage() {
             </Button>
           </nav>
 
-          <h1 className="mb-6 text-5xl font-semibold tracking-tight text-zinc-100">Skills</h1>
+          <h1 className="mb-2 text-5xl font-semibold tracking-tight text-zinc-100">Skills</h1>
+          <p className="mb-6 max-w-3xl text-sm text-zinc-400 sm:text-base">
+            Capabilities mapped to systems I&apos;ve built, not just listed as isolated tools.
+          </p>
           <SkillsSection />
         </div>
       </div>

@@ -5,7 +5,6 @@ import ProjectTimeline from "@/components/ProjectTimeline";
 import Footer from "@/components/Footer";
 import Writing from "@/components/Writing";
 import Highlights from "@/components/Highlights";
-import IdentityStatement from "@/components/IdentityStatement";
 import About from "@/components/about";
 
 export default function Home() {

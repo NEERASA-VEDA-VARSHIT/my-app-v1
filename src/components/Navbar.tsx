@@ -21,14 +21,14 @@ export default function Navbar() {
             <Link href="/projects" className="transition hover:text-zinc-100">
               Projects
             </Link>
-            <Link href="#about" className="transition hover:text-zinc-100">
-              About
+            <Link href="#featuredProjects" className="transition hover:text-zinc-100">
+              Featured Systems
             </Link>
             <Link href="/skills" className="transition hover:text-zinc-100">
               Skills
             </Link>
-            <Link href="#achievements" className="transition hover:text-zinc-100">
-              Achievements
+            <Link href="#highlights" className="transition hover:text-zinc-100">
+              Highlights
             </Link>
           </div>
 

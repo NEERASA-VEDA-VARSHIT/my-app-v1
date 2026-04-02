@@ -7,7 +7,7 @@ export default function FeaturedProjects() {
   const projects = featuredProjects.slice(0, 6);
 
   return (
-    <section className="relative mx-auto w-full border-b border-white/10 px-5 py-12 sm:px-6 sm:py-14 md:px-8 md:py-16 lg:py-20">
+    <section id="featuredProjects" className="relative mx-auto w-full border-b border-white/10 px-5 py-12 sm:px-6 sm:py-14 md:px-8 md:py-16 lg:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 sm:mb-10 md:mb-12">
           <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl md:text-5xl">

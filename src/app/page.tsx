@@ -5,7 +5,6 @@ import ProjectTimeline from "@/components/ProjectTimeline";
 import Footer from "@/components/Footer";
 import Writing from "@/components/Writing";
 import Highlights from "@/components/Highlights";
-import About from "@/components/about";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
           <FeaturedProjects />
           <ProjectTimeline />
           <Highlights />
-          <About />
           <Footer />
         </div>
       </div>

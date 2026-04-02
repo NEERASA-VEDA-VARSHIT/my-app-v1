@@ -2,21 +2,24 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import {
-  Bot,
-  Brain,
-  Building2,
-  Cpu,
-  Database,
-  GitBranch,
-  Layers,
-  Network,
-  Server,
-  ShieldCheck,
-  Timer,
-  Workflow,
-} from "lucide-react";
+  FaCss3Alt,
+  FaDatabase,
+  FaHtml5,
+  FaJava,
+  FaJs,
+  FaNode,
+  FaPython,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiCplusplus,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+} from "react-icons/si";
 
-type SkillCategory = "Backend" | "Data" | "AI/ML" | "Systems" | "Architecture";
+type SkillCategory = "Frontend" | "Backend" | "Database" | "Language" | "Mobile";
 
 type SkillItem = {
   name: string;
@@ -26,92 +29,99 @@ type SkillItem = {
   usedIn: string[];
 };
 
-const filters: Array<"All" | SkillCategory> = ["All", "Backend", "Data", "AI/ML", "Systems", "Architecture"];
+const filters: Array<"All" | SkillCategory> = ["All", "Frontend", "Backend", "Database", "Language", "Mobile"];
 
 const skills: SkillItem[] = [
   {
-    name: "API Design",
+    name: "C++",
+    category: "Language",
+    icon: <SiCplusplus className="h-8 w-8" aria-hidden="true" />,
+    what: "Low-level programming for performance-critical and systems-heavy logic.",
+    usedIn: ["Multi-Threaded HTTP Server", "Algorithmic Problem Solving"],
+  },
+  {
+    name: "MongoDB",
+    category: "Database",
+    icon: <SiMongodb className="h-8 w-8" aria-hidden="true" />,
+    what: "Document database modeling for flexible schemas and rapid iteration.",
+    usedIn: ["TicketHub", "Smart Wardrobe"],
+  },
+  {
+    name: "Express",
     category: "Backend",
-    icon: <Server className="h-8 w-8" aria-hidden="true" />,
-    what: "REST APIs, route design, validation, and version-safe contracts.",
-    usedIn: ["TicketHub", "SaaS Billing"],
+    icon: <SiExpress className="h-8 w-8" aria-hidden="true" />,
+    what: "Server APIs, middleware pipelines, and backend route orchestration.",
+    usedIn: ["TicketHub", "SaaS Billing", "Smart Mirror"],
   },
   {
-    name: "Access Control",
+    name: "React",
+    category: "Frontend",
+    icon: <FaReact className="h-8 w-8" aria-hidden="true" />,
+    what: "Component-driven UI architecture for responsive web interfaces.",
+    usedIn: ["Portfolio", "TicketHub Admin"],
+  },
+  {
+    name: "React Native",
+    category: "Mobile",
+    icon: <FaReact className="h-8 w-8" aria-hidden="true" />,
+    what: "Cross-platform mobile app interfaces with shared React paradigms.",
+    usedIn: ["Mobile Prototypes", "Hybrid App Experiments"],
+  },
+  {
+    name: "Node",
     category: "Backend",
-    icon: <ShieldCheck className="h-8 w-8" aria-hidden="true" />,
-    what: "Role-based access control and permission boundaries.",
-    usedIn: ["TicketHub"],
+    icon: <FaNode className="h-8 w-8" aria-hidden="true" />,
+    what: "Runtime for event-driven backend services and API processing.",
+    usedIn: ["TicketHub", "SaaS Billing", "Smart Mirror"],
   },
   {
-    name: "Data Modeling",
-    category: "Data",
-    icon: <Database className="h-8 w-8" aria-hidden="true" />,
-    what: "Schema design, indexing strategy, and relation planning.",
-    usedIn: ["TicketHub", "SaaS Billing", "Smart Wardrobe"],
+    name: "MySQL",
+    category: "Database",
+    icon: <SiMysql className="h-8 w-8" aria-hidden="true" />,
+    what: "Relational schema design and transactional queries.",
+    usedIn: ["SaaS Billing", "TicketHub"],
   },
   {
-    name: "Workflow Automation",
-    category: "Architecture",
-    icon: <Workflow className="h-8 w-8" aria-hidden="true" />,
-    what: "Stateful process automation with clear event-driven transitions.",
-    usedIn: ["TicketHub", "SaaS Billing"],
+    name: "PostgreSQL",
+    category: "Database",
+    icon: <SiPostgresql className="h-8 w-8" aria-hidden="true" />,
+    what: "Reliable relational storage with strong consistency and indexing.",
+    usedIn: ["SaaS Billing", "Analytics Services"],
   },
   {
-    name: "Model Serving",
-    category: "AI/ML",
-    icon: <Brain className="h-8 w-8" aria-hidden="true" />,
-    what: "Integrating ML outputs inside product workflows.",
+    name: "Python",
+    category: "Language",
+    icon: <FaPython className="h-8 w-8" aria-hidden="true" />,
+    what: "Data workflows, ML experimentation, and automation scripting.",
     usedIn: ["Fraud Detection", "Battery Health Prediction"],
   },
   {
-    name: "AI Integration",
-    category: "AI/ML",
-    icon: <Bot className="h-8 w-8" aria-hidden="true" />,
-    what: "Prompt flows, RAG patterns, and context-aware user interactions.",
-    usedIn: ["Smart Wardrobe", "Smart Mirror"],
+    name: "Java",
+    category: "Language",
+    icon: <FaJava className="h-8 w-8" aria-hidden="true" />,
+    what: "Object-oriented architecture and strongly typed backend development.",
+    usedIn: ["DSA Practice", "Backend Coursework"],
   },
   {
-    name: "Concurrency",
-    category: "Systems",
-    icon: <Cpu className="h-8 w-8" aria-hidden="true" />,
-    what: "Parallel request handling and thread-safe runtime behavior.",
-    usedIn: ["Multi-Threaded HTTP Server"],
+    name: "HTML",
+    category: "Frontend",
+    icon: <FaHtml5 className="h-8 w-8" aria-hidden="true" />,
+    what: "Semantic structure for accessible and maintainable web pages.",
+    usedIn: ["Portfolio", "Landing Pages"],
   },
   {
-    name: "Networking",
-    category: "Systems",
-    icon: <Network className="h-8 w-8" aria-hidden="true" />,
-    what: "Socket lifecycle handling and low-level communication flow.",
-    usedIn: ["Multi-Threaded HTTP Server"],
+    name: "CSS",
+    category: "Frontend",
+    icon: <FaCss3Alt className="h-8 w-8" aria-hidden="true" />,
+    what: "Responsive layouts, design systems, and polished UI behavior.",
+    usedIn: ["Portfolio", "TicketHub Frontend"],
   },
   {
-    name: "Multi-Tenancy",
-    category: "Architecture",
-    icon: <Building2 className="h-8 w-8" aria-hidden="true" />,
-    what: "Tenant isolation, shared infrastructure, and scoped data access.",
-    usedIn: ["TicketHub", "SaaS Billing"],
-  },
-  {
-    name: "Reliability",
-    category: "Architecture",
-    icon: <Timer className="h-8 w-8" aria-hidden="true" />,
-    what: "Idempotency, retries, and deterministic processing paths.",
-    usedIn: ["SaaS Billing", "Fraud Detection"],
-  },
-  {
-    name: "System Thinking",
-    category: "Architecture",
-    icon: <Layers className="h-8 w-8" aria-hidden="true" />,
-    what: "Designing components as evolvable systems, not isolated features.",
-    usedIn: ["TicketHub", "Smart Wardrobe", "Fraud Detection"],
-  },
-  {
-    name: "Integration Flows",
-    category: "Backend",
-    icon: <GitBranch className="h-8 w-8" aria-hidden="true" />,
-    what: "Service orchestration and predictable backend handoff patterns.",
-    usedIn: ["SaaS Billing", "Smart Mirror"],
+    name: "JS",
+    category: "Language",
+    icon: <FaJs className="h-8 w-8" aria-hidden="true" />,
+    what: "Core language for interactive web experiences and full-stack logic.",
+    usedIn: ["Portfolio", "TicketHub", "SaaS Billing"],
   },
 ];
 
@@ -181,7 +191,7 @@ export default function SkillsSection() {
                 <p className="text-xs uppercase tracking-[0.12em] text-blue-300">What</p>
                 <p className="mt-1 text-xs leading-relaxed text-zinc-300">{skill.what}</p>
                 <p className="mt-3 text-xs uppercase tracking-[0.12em] text-blue-300">Used In</p>
-                <p className="mt-1 text-xs text-zinc-300">{skill.usedIn.join(" • ")}</p>
+                <p className="mt-1 text-xs text-zinc-300">{skill.usedIn.join(" | ")}</p>
               </div>
             </article>
           ))}
@@ -196,7 +206,7 @@ export default function SkillsSection() {
             <p className="mt-1 text-sm leading-relaxed text-zinc-300">{selectedSkill.what}</p>
 
             <p className="mt-4 text-xs uppercase tracking-[0.12em] text-blue-300">Used In</p>
-            <p className="mt-1 text-sm text-zinc-300">{selectedSkill.usedIn.join(" • ")}</p>
+            <p className="mt-1 text-sm text-zinc-300">{selectedSkill.usedIn.join(" | ")}</p>
           </div>
         ) : null}
       </div>
